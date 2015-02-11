@@ -4,6 +4,13 @@
 
 var peopleApp = angular.module('angularApp', []);
 
+peopleApp.controller('PeopleListCtrl', function($scope, $http) { // peopleApp is controller
+  $http.get('http://tinder-api.herokuapp.com/people').success(function(data) {
+    $scope.people = data;
+  });
+});
+
+/* version with hardcoded model
 peopleApp.controller('PeopleListCtrl', function ($scope) { // peopleApp is controller
   $scope.people = [ // people is model. See it's in plural (rails would be singular)
     {'name': 'Max',
@@ -18,3 +25,5 @@ peopleApp.controller('PeopleListCtrl', function ($scope) { // peopleApp is contr
   ];
 
 });
+
+*/
