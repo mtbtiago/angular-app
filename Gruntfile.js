@@ -19,13 +19,29 @@ module.exports = function(grunt) {
          'build/main.css':'sass/main.scss'
         }
       }
+    },
+    processhtml: {
+      dist: {
+        options: {
+          process: true,
+          data: {
+            title: 'My Angular app',
+            message: 'This is production distribution'
+          }
+        },
+        files: {
+          'build/index.html': ['index.html']
+        }
+      }
     }
   });
 
-  // Load the plugin that generates css from sass.
+  // Load the plugin tasks
   grunt.loadNpmTasks('grunt-contrib-sass');
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  // Default task(s).
+  grunt.loadNpmTasks('grunt-processhtml');
+
+  // Custom tasks
+  grunt.registerTask('build', ['processhtml']);
   grunt.registerTask('default', ['uglify', 'sass']);
 };

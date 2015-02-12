@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Tinder</title>
+
+  <!-- This block is used by grunt to execute the build task. Comments inform to grunt -->
+  <!-- build:js main.min.js -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bower-tinder-js-mtbtiago/geolocation.tinder.js"></script>
+  <script src="bower_components/bower-tinder-js-mtbtiago/notifications.tinder.js"></script>
+  <script src="bower_components/bower-tinder-js-mtbtiago/query.tinder.js"></script>
+  <script src="bower_components/bower-tinder-js-mtbtiago/storage.tinder.js"></script>
   <script src="javascript/controllers.js"></script>
+  <!-- /build -->
+
 </head>
 <body ng-controller="PeopleListCtrl">
   <div class="container">
