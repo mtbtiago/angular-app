@@ -8,9 +8,10 @@ module.exports = function(grunt) {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
-      build: {
-        src: 'javascript/*.js',
-        dest: 'build/main.min.js'
+      my_target: {
+        files: {
+          'build/main.min.js': ['javascript/*.js', 'bower_components/angular/angular.js', 'bower_components/bower-tinder-js-mtbtiago/*.js']
+        }
       }
     },
     sass: {
@@ -33,6 +34,12 @@ module.exports = function(grunt) {
           'build/index.html': ['index.html']
         }
       }
+    },
+    copy: {
+      main: {
+        src: 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+        dest: 'build/bootstrap.min.css',
+      }
     }
   });
 
@@ -40,8 +47,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-processhtml');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Custom tasks
   grunt.registerTask('build', ['processhtml']);
-  grunt.registerTask('default', ['uglify', 'sass']);
+  grunt.registerTask('default', ['uglify', 'sass', 'copy']);
 };
