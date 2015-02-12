@@ -1,39 +1,40 @@
 <html ng-app="angularApp">
+
 <head>
   <title>Tinder</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- build:css bootstrap.min.css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <!-- /build  -->
+  <!-- build:css bootstrap.min.css -->
+  <link rel="stylesheet" href="sass/main.css">
+  <link rel="stylesheet" href="sass/animate.css">
+  <!-- /build  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular.min.js"></script>
   <!-- build:js main.min.js -->
-  <script src="bower_components/bower-tinder-js-mtbtiago/ajax.tinder.js"></script>
-  <script src="bower_components/bower-tinder-js-mtbtiago/query.tinder.js"></script>
-  <script src="bower_components/bower-tinder-js-mtbtiago/storage.tinder.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="javascript/controllers.js"></script>
   <!-- /build  -->
 
 </head>
+
 <body ng-controller="PeopleListCtrl">
   <div class="container">
-    <div class="header">
-      <h3>Tinder.js</h3>
-    </div>
-
-    <div class="jumbotron">
-      <h1>An Angular App</h1>
-      <p class="lead">Working with Angular and our own Bower packages. Nice.</p>
-    </div>
-
     <div class="row">
 
-      <div class="col-sm-4 col-md-4" ng-repeat="person in people">
+      <div class="col-sm-12 col-md-12 person_div animated navbar-default navbar-fixed-top" ng-repeat="person in people" ng-view>
         <div class="thumbnail">
           <img ng-src="{{person.avatar}}">
           <div class="caption">
             <h3>{{person.name}}</h3>
-            <p>{{person.description}}</p>
-            <p><a href="#" class="btn btn-primary" role="button">Yes</a> <a href="#" class="btn btn-default" role="button">Nope</a></p>
+            <ul class="nav nav-pills gender_age" role="tablist">
+              <li role="presentation" class="active">{{person.gender}}  </span><span class="badge">{{person.age}}</span>
+              </li>
+            </ul>
+            <div class="nav navbar-default pagination-centered yes_nope">
+              <button id="bu_yes" class="btn navbar-btn btn-success btn-lg bu_yes_no">Yes</button>
+              <button id="bu_nope" class="btn navbar-btn btn-danger btn-lg bu_yes_no">Nope</button>
+            </div>
           </div>
         </div>
       </div>
@@ -41,5 +42,8 @@
     </div>
   </div>
 
+  <script src="javascript/application.js"></script>
+
 </body>
+
 </html>
