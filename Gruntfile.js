@@ -6,11 +6,12 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
+        mangle: false,
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       my_target: {
         files: {
-          'build/main.min.js': ['javascript/*.js', 'bower_components/angular/angular.js', 'bower_components/bower-tinder-js-mtbtiago/*.js']
+          'build/main.min.js': ['javascript/*.js', 'bower_components/bower-tinder-js-mtbtiago/*.js']
         }
       }
     },
