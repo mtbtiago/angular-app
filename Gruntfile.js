@@ -60,6 +60,5 @@ module.exports = function(grunt) {
 
   // Custom tasks
   grunt.registerTask('deploy', ['gh-pages']);
-  grunt.registerTask('build', ['processhtml']);
-  grunt.registerTask('default', ['uglify', 'sass', 'copy']);
+  grunt.registerTask('default', ['uglify', 'sass', 'copy', 'processhtml']);
 };
