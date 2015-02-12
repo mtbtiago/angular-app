@@ -26,12 +26,12 @@
         <div class="thumbnail">
           <img ng-src="{{person.avatar}}">
           <div class="caption">
-            <h3>{{person.name}}</h3>
-            <ul class="nav nav-pills gender_age" role="tablist">
-              <li role="presentation" class="active">{{person.gender}}  </span><span class="badge">{{person.age}}</span>
-              </li>
-            </ul>
-            <div class="nav navbar-default pagination-centered yes_nope">
+            <h3 class="centered">{{person.name}}</h3>
+            <div class="nav navbar-default gender_age centeree" role="tablist">
+              <span role="presentation" class="active">{{person.gender}} <span class="badge">{{person.age}}</span>
+              </span>
+            </div>
+            <div class="nav navbar-default yes_nope centered">
               <button id="bu_yes" class="btn navbar-btn btn-success btn-lg bu_yes_no">Yes</button>
               <button id="bu_nope" class="btn navbar-btn btn-danger btn-lg bu_yes_no">Nope</button>
             </div>
@@ -40,6 +40,7 @@
       </div>
 
     </div>
+
   </div>
 
   <script src="javascript/application.js"></script>
